@@ -1,0 +1,11 @@
+{
+  "name": "Secret Army",
+  "short_name": "Secret Army",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#850000",
+  "orientation": "portrait",
+  "lang": "fa",
+  "icons": []
+}

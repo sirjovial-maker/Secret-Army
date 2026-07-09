@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secret Army</title>
+
+  <link rel="manifest" href="manifest.json">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+
+    background:#080808;
+    color:white;
+
+    font-family:Tahoma, sans-serif;
+
+    text-align:center;
+
+}
+
+.container{
+
+    position:relative;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+  
+  
+  
+
+
+
+.title{
+
+    font-family:Georgia, serif;
+
+    font-size:42px;
+
+    letter-spacing:4px;
+
+}
+
+
+
+.subtitle{
+
+    font-size:24px;
+
+    color:#aaa;
+
+    margin-top:5px;
+
+}
+
+
+
+.card{
+
+    width:90%;
+    max-width:360px;
+
+margin-left:auto;
+margin-right:auto;
+  
+    background:#151515;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin-top:30px;
+
+}
+
+
+
+button{
+
+    background:#850000;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+
+select{
+
+    padding:10px;
+
+    font-size:18px;
+
+    border-radius:10px;
+
+}
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+/* کارت نقش */
+
+
+.role-card{
+
+    width:280px;
+
+    height:360px;
+
+    background:#111;
+
+    border-radius:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transition:1s;
+
+}
+
+
+
+.role-card.open{
+
+    transform:rotateY(180deg);
+
+}
+
+
+
+.front,
+.back{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    backface-visibility:hidden;
+
+}
+
+
+
+.back{
+
+    transform:rotateY(180deg);
+
+}
+
+
+
+.lock{
+
+    font-size:50px;
+
+}
+
+
+
+.role-name{
+
+    font-family:Georgia, serif;
+
+    font-size:32px;
+
+    margin:20px;
+
+    animation:fade 1s;
+
+}
+
+
+
+.team{
+
+    font-size:22px;
+
+    animation:fade 1.5s;
+
+}
+
+
+
+.gestapo{
+
+    color:#d33;
+
+}
+
+
+
+.rescue{
+
+    color:#3999ff;
+
+}
+
+
+
+.independent{
+
+    color:#e8c34a;
+
+}
+
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:scale(.7);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+
+.agent{
+
+    font-size:20px;
+
+    color:#aaa;
+
+}
+
+
+
+.credit{
+
+    position:absolute;
+
+    bottom:15px;
+
+    width:100%;
+
+    left:0;
+
+    text-align:center;
+
+    font-size:12px;
+
+    color:#666;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div id="home">
+
+
+<div class="title">
+SECRET ARMY
+</div>
+
+
+<div class="subtitle">
+ارتش سری
+</div>
+
+
+
+<div class="card">
+
+
+<p>
+تعداد بازیکنان
+</p>
+
+
+<select id="players">
+
+<option value="9">۹ نفر</option>
+
+<option value="10" selected>
+۱۰ نفر
+</option>
+
+<option value="11">
+۱۱ نفر
+</option>
+
+
+</select>
+
+
+<br><br>
+
+
+<button onclick="startGame()">
+شروع بازی
+</button>
+
+
+</div>
+
+
+<div class="credit">
+
+Designed by : Saeed Sahebelm<br>
+Forget cafe
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="game" class="hidden">
+
+
+<div class="agent">
+
+AGENT <span id="number"></span>
+
+</div>
+
+
+
+<div class="role-card" id="roleCard">
+
+
+
+<div class="front">
+
+<div class="lock">
+🔒
+</div>
+
+
+<p>
+نقش شما محرمانه است
+</p>
+
+
+<button onclick="showRole()">
+نمایش نقش
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="back">
+
+
+<div id="role" class="role-name"></div>
+
+
+<div id="team" class="team"></div>
+
+
+<br>
+
+
+<button onclick="received()">
+پیام دریافت شد
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+<script>
+
+let roles = [];
+let current = 0;
+
+
+const baseRoles = [
+
+{
+name:"سرهنگ کسلر",
+team:"تیم گشتاپو",
+class:"gestapo"
+},
+
+{
+name:"راینهارت",
+team:"تیم گشتاپو",
+class:"gestapo"
+},
+
+{
+name:"گشتاپوی ساده",
+team:"تیم گشتاپو",
+class:"gestapo"
+},
+
+
+{
+name:"پارتیزان",
+team:"تیم نجات",
+class:"rescue"
+},
+
+{
+name:"پارتیزان",
+team:"تیم نجات",
+class:"rescue"
+},
+
+{
+name:"کرتیس",
+team:"تیم نجات",
+class:"rescue"
+},
+
+{
+name:"خلبان",
+team:"تیم نجات",
+class:"rescue"
+},
+
+{
+name:"دکتر",
+team:"تیم نجات",
+class:"rescue"
+}
+
+];
+
+
+
+function shuffle(array){
+
+for(let i=array.length-1;i>0;i--){
+
+let j=Math.floor(Math.random()*(i+1));
+
+[array[i],array[j]]=[array[j],array[i]];
+
+}
+
+}
+
+
+
+function startGame(){
+
+
+let count =
+document.getElementById("players").value;
+
+
+
+roles=[...baseRoles];
+
+
+
+for(let i=0;i<count-8;i++){
+
+roles.push({
+
+name:"مشتری",
+
+team:"تیم مستقل",
+
+class:"independent"
+
+});
+
+}
+
+
+
+shuffle(roles);
+
+
+
+current=0;
+
+
+
+document.getElementById("home").classList.add("hidden");
+
+document.getElementById("game").classList.remove("hidden");
+
+
+
+showPlayer();
+
+
+}
+
+
+
+
+function showPlayer(){
+
+
+document.getElementById("number").innerHTML=
+String(current+1).padStart(2,"0");
+
+
+
+document.getElementById("roleCard")
+.classList.remove("open");
+
+
+
+document.getElementById("next")
+.classList.add("hidden");
+
+
+}
+
+
+
+
+function showRole(){
+
+
+let r=roles[current];
+
+
+
+document.getElementById("role")
+.innerHTML=r.name;
+
+
+
+let team=
+document.getElementById("team");
+
+
+
+team.innerHTML=r.team;
+
+
+
+team.className="team "+r.class;
+
+
+
+document.getElementById("roleCard")
+.classList.add("open");
+
+
+
+}
+
+
+
+
+function received(){
+
+current++;
+
+if(current>=roles.length){
+
+alert("تمام نقش‌ها تقسیم شد. عملیات آغاز می‌شود!");
+
+return;
+
+}
+
+showPlayer();
+
+}
+
+
+
+
+function nextPlayer(){
+
+
+current++;
+
+
+
+if(current>=roles.length){
+
+alert("تمام نقش‌ها تقسیم شد. عملیات آغاز می‌شود!");
+
+return;
+
+}
+
+
+
+showPlayer();
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
