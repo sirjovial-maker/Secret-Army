@@ -589,6 +589,35 @@ AGENT <span id="number"></span>
 </div>
 <script>
 
+const preloadImages = [
+
+"images/kessler.png",
+
+"images/reinhardt.png",
+
+"images/gestapo.png",
+
+"images/partisan.png",
+
+"images/curtis.png",
+
+"images/pilot.png",
+
+"images/doctor.png",
+
+"images/customer.png"
+
+];
+
+preloadImages.forEach(src=>{
+
+const img=new Image();
+
+img.src=src;
+
+});
+  
+
 let roles = [];
 let current = 0;
 
@@ -731,12 +760,6 @@ String(current+1).padStart(2,"0");
 
 document.getElementById("roleCard")
 .classList.remove("open");
-
-document.getElementById("roleImage").src = "";
-
-document.getElementById("role").innerHTML = "";
-
-document.getElementById("team").innerHTML = "";
 
 
 
