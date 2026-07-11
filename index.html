@@ -8,55 +8,55 @@
 
 <title>Secret Army</title>
 
-  <link rel="manifest" href="manifest.json">
+<link rel="manifest" href="manifest.json">
 
 <style>
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
 
-    margin:0;
-    height:100vh;
-    overflow:hidden;
+margin:0;
+height:100vh;
+overflow:hidden;
 
-    background:#080808;
-    color:white;
+background:#080808;
+color:white;
 
-    font-family:Tahoma, sans-serif;
+font-family:Tahoma, sans-serif;
 
-    text-align:center;
+text-align:center;
 
 }
 
 .container{
 
-    position:relative;
+position:relative;
 
-    width:100%;
-    height:100vh;
+width:100%;
+height:100vh;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+display:flex;
+justify-content:center;
+align-items:center;
 
 }
 
-  
-  
-  
+
+
+
 
 
 
 .title{
 
-    font-family:Georgia, serif;
+font-family:Georgia, serif;
 
-    font-size:42px;
+font-size:42px;
 
-    letter-spacing:4px;
+letter-spacing:4px;
 
 }
 
@@ -64,11 +64,11 @@ body{
 
 .subtitle{
 
-    font-size:24px;
+font-size:24px;
 
-    color:#aaa;
+color:#aaa;
 
-    margin-top:5px;
+margin-top:5px;
 
 }
 
@@ -76,19 +76,19 @@ body{
 
 .card{
 
-    width:90%;
-    max-width:360px;
+width:90%;
+max-width:360px;
 
 margin-left:auto;
 margin-right:auto;
-  
-    background:#151515;
 
-    border-radius:25px;
+background:#151515;
 
-    padding:25px;
+border-radius:25px;
 
-    margin-top:30px;
+padding:25px;
+
+margin-top:30px;
 
 }
 
@@ -96,19 +96,19 @@ margin-right:auto;
 
 button{
 
-    background:#850000;
+background:#850000;
 
-    color:white;
+color:white;
 
-    border:none;
+border:none;
 
-    padding:14px 30px;
+padding:14px 30px;
 
-    border-radius:30px;
+border-radius:30px;
 
-    font-size:18px;
+font-size:18px;
 
-    cursor:pointer;
+cursor:pointer;
 
 }
 
@@ -116,11 +116,11 @@ button{
 
 select{
 
-    padding:10px;
+padding:10px;
 
-    font-size:18px;
+font-size:18px;
 
-    border-radius:10px;
+border-radius:10px;
 
 }
 
@@ -128,7 +128,7 @@ select{
 
 .hidden{
 
-    display:none;
+display:none;
 
 }
 
@@ -139,25 +139,25 @@ select{
 
 .role-card{
 
-    width:280px;
+width:280px;
 
-    height:360px;
+height:360px;
 
-    background:#111;
+background:#111;
 
-    border-radius:25px;
+border-radius:25px;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    position:relative;
+position:relative;
 
-    transform-style:preserve-3d;
+transform-style:preserve-3d;
 
-    transition:1s;
+transition:1s;
 
 }
 
@@ -165,7 +165,7 @@ select{
 
 .role-card.open{
 
-    transform:rotateY(180deg);
+transform:rotateY(180deg);
 
 }
 
@@ -174,21 +174,21 @@ select{
 .front,
 .back{
 
-    position:absolute;
+position:absolute;
 
-    width:100%;
+width:100%;
 
-    height:100%;
+height:100%;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    backface-visibility:hidden;
+backface-visibility:hidden;
 
 }
 
@@ -196,7 +196,7 @@ select{
 
 .back{
 
-    transform:rotateY(180deg);
+transform:rotateY(180deg);
 
 }
 
@@ -204,7 +204,7 @@ select{
 
 .lock{
 
-    font-size:50px;
+font-size:50px;
 
 }
 
@@ -223,15 +223,15 @@ margin-bottom:12px;
 border-radius:12px;
 
 }
-  .role-name{
+.role-name{
 
-    font-family:Georgia, serif;
+font-family:Georgia, serif;
 
-    font-size:32px;
+font-size:32px;
 
-    margin:20px;
+margin:20px;
 
-    animation:fade 1s;
+animation:fade 1s;
 
 }
 
@@ -239,9 +239,9 @@ border-radius:12px;
 
 .team{
 
-    font-size:22px;
+font-size:22px;
 
-    animation:fade 1.5s;
+animation:fade 1.5s;
 
 }
 
@@ -249,7 +249,7 @@ border-radius:12px;
 
 .gestapo{
 
-    color:#d33;
+color:#d33;
 
 }
 
@@ -257,7 +257,7 @@ border-radius:12px;
 
 .rescue{
 
-    color:#3999ff;
+color:#3999ff;
 
 }
 
@@ -265,7 +265,7 @@ border-radius:12px;
 
 .independent{
 
-    color:#e8c34a;
+color:#e8c34a;
 
 }
 
@@ -295,19 +295,19 @@ transform:scale(1);
 
 .agent{
 
-    font-size:20px;
+font-size:20px;
 
-    color:#aaa;
+color:#aaa;
 
 }
 
 
 
 .credit{
-    margin-top:30px;
-    text-align:center;
-    font-size:12px;
-    color:#888;
+margin-top:30px;
+text-align:center;
+font-size:12px;
+color:#888;
 }
 .secret-envelope{
 
@@ -336,10 +336,10 @@ transform:translateY(-6px);
 100%{
 transform:translateY(0px);
 }
-  
+
 }
 
-  #splash{
+#splash{
 
 position:fixed;
 
@@ -431,108 +431,28 @@ visibility:hidden;
 
 
 
-#noise{
 
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:#000;
-
-display:none;
-
-justify-content:center;
-
-align-items:center;
-
-overflow:hidden;
-
-z-index:9998;
-
-}
-
-.noise-layer{
-
-width:100%;
-
-height:100%;
-
-background-image:
-radial-gradient(#fff 1px, transparent 1px);
-
-background-size:4px 4px;
-
-opacity:.18;
-
-animation:noiseMove .12s infinite;
-
-}
-
-@keyframes noiseMove{
-
-0%{
-
-transform:translate(0,0);
-
-}
-
-25%{
-
-transform:translate(2px,-2px);
-
-}
-
-50%{
-
-transform:translate(-2px,2px);
-
-}
-
-75%{
-
-transform:translate(2px,2px);
-
-}
-
-100%{
-
-transform:translate(0,0);
-
-}
-
-}
 </style>
 
 </head>
 
 
 <body>
-  <div id="splash">
-  <div id="noise">
+<div id="splash">
 
-<div class="noise-layer"></div>
+<img src="images/logo.png" id="logo">
+
+<div id="designer">
+
+Designed by
+
+<br>
+
+<span>Saeed Sahebelm</span>
 
 </div>
 
-    <img src="images/logo.png" id="logo">
-
-    <div id="designer">
-
-        Designed by
-
-        <br>
-
-        <span>Saeed Sahebelm</span>
-
-    </div>
-
-  </div>
+</div>
 
 
 <div class="container">
@@ -696,7 +616,7 @@ const img=new Image();
 img.src=src;
 
 });
-  
+
 
 let roles = [];
 let current = 0;
@@ -935,17 +855,10 @@ setTimeout(function(){
 
 document.getElementById("splash").style.display="none";
 
-document.getElementById("noise").style.display="flex";
-
-setTimeout(function(){
-
-document.getElementById("noise").style.display="none";
-
-},3000);
-
 },3500);
 
 }
+</script>
 
 
 </body>
