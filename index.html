@@ -210,7 +210,20 @@ select{
 
 
 
-.role-name{
+.role-image{
+
+width:180px;
+
+height:220px;
+
+object-fit:contain;
+
+margin-bottom:12px;
+
+border-radius:12px;
+
+}
+  .role-name{
 
     font-family:Georgia, serif;
 
@@ -413,9 +426,9 @@ AGENT <span id="number"></span>
 
 <div class="back">
 
+<img id="roleImage" class="role-image">
 
 <div id="role" class="role-name"></div>
-
 
 <div id="team" class="team"></div>
 
@@ -452,7 +465,8 @@ const baseRoles = [
 {
 name:"سرهنگ کسلر",
 team:"تیم گشتاپو",
-class:"gestapo"
+class:"gestapo",
+image:"images/kessler.png"
 },
 
 {
@@ -592,6 +606,7 @@ function showRole(){
 
 
 let r=roles[current];
+document.getElementById("roleImage").src=r.image;
 
 
 
