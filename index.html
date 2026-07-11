@@ -309,6 +309,33 @@ transform:scale(1);
     font-size:12px;
     color:#888;
 }
+.secret-envelope{
+
+width:140px;
+
+height:auto;
+
+margin-bottom:20px;
+
+animation:float 2.5s ease-in-out infinite;
+
+filter:drop-shadow(0 0 12px rgba(255,0,0,.18));
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-6px);
+}
+
+100%{
+transform:translateY(0px);
+}
 
 
 
@@ -403,9 +430,7 @@ AGENT <span id="number"></span>
 
 <div class="front">
 
-<div class="lock">
-🔒
-</div>
+<img src="images/secret-envelope.png" class="secret-envelope">
 
 
 <p>
