@@ -33,6 +33,7 @@ height:100%;
 
 const canvas=document.getElementById("noise");
 const ctx=canvas.getContext("2d");
+const startTime=Date.now();
 
 function resize(){
 
@@ -109,6 +110,20 @@ ctx.fillRect(0,y,canvas.width,1);
 
 }
 
+// نمایش متن
+ctx.fillStyle="#00ff66";
+ctx.font="bold 42px monospace";
+ctx.textAlign="center";
+
+if(Date.now()-startTime>2000){
+
+ctx.fillText(
+"SIGNAL LOST",
+canvas.width/2,
+canvas.height/2
+);
+
+}
 requestAnimationFrame(draw);
 
 }
