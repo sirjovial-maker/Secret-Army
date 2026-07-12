@@ -86,9 +86,13 @@ noiseAlpha=1-Math.min((t-5600)/1200,1);
 
 }
 
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.save();
 ctx.globalAlpha=noiseAlpha;
 ctx.putImageData(img,0,0);
-ctx.globalAlpha=1;
+ctx.restore();
+  
 glitchTimer++;
 
 if(glitchTimer>25){
@@ -116,8 +120,6 @@ ctx.fillRect(0,y,canvas.width,1);
 
 }
   // نمایش متن
-
-let t=Date.now()-startTime;
 
 let message="";
 
