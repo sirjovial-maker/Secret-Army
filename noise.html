@@ -147,6 +147,19 @@ canvas.height/2
 );
 
 }
+// White Flash
+if(t>=5600 && t<5680){
+
+ctx.fillStyle="rgba(255,255,255,0.95)";
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+}
 requestAnimationFrame(draw);
 
 }
