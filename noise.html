@@ -72,6 +72,15 @@ img.data[i+3]=255;
 
 ctx.putImageData(img,0,0);
 
+// خطوط افقی تلویزیون
+ctx.fillStyle="rgba(0,0,0,0.18)";
+
+for(let y=0;y<canvas.height;y+=3){
+
+ctx.fillRect(0,y,canvas.width,1);
+
+}
+
 requestAnimationFrame(draw);
 
 }
