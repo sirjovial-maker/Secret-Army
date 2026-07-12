@@ -47,6 +47,9 @@ window.addEventListener("resize",resize);
 
 let glitchOffset=0;
 let glitchTimer=0;
+  
+const startTime=Date.now();
+
 
 function draw(){
 
@@ -100,7 +103,43 @@ for(let y=0;y<canvas.height;y+=3){
 ctx.fillRect(0,y,canvas.width,1);
 
 }
+  // نمایش متن
 
+let t=Date.now()-startTime;
+
+let message="";
+
+if(t>=2000 && t<3000){
+
+message="SIGNAL LOST";
+
+}else if(t>=3000 && t<4000){
+
+message="SIGNAL FOUND";
+
+}else if(t>=4000 && t<5600){
+
+message="AUTHENTICATING...";
+
+}else if(t>=5600){
+
+message="ACCESS GRANTED";
+
+}
+
+ctx.fillStyle="#00ff66";
+ctx.font="bold 42px monospace";
+ctx.textAlign="center";
+
+if(message!=""){
+
+ctx.fillText(
+message,
+canvas.width/2,
+canvas.height/2
+);
+
+}
 requestAnimationFrame(draw);
 
 }
