@@ -74,6 +74,14 @@ img.data[i+3]=255;
 }
 
 ctx.putImageData(img,0,0);
+// نوار اسکن متحرک
+let scanY=(Date.now()/8)%canvas.height;
+
+ctx.fillStyle="rgba(255,255,255,0.12)";
+ctx.fillRect(0,scanY,canvas.width,2);
+
+ctx.fillStyle="rgba(255,255,255,0.05)";
+ctx.fillRect(0,scanY+3,canvas.width,1);
 glitchTimer++;
 
 if(glitchTimer>25){
