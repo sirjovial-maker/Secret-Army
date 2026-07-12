@@ -45,6 +45,9 @@ resize();
 
 window.addEventListener("resize",resize);
 
+let glitchOffset=0;
+let glitchTimer=0;
+
 function draw(){
 
 let img=ctx.createImageData(canvas.width,canvas.height);
@@ -71,6 +74,23 @@ img.data[i+3]=255;
 }
 
 ctx.putImageData(img,0,0);
+glitchTimer++;
+
+if(glitchTimer>25){
+
+glitchTimer=0;
+
+glitchOffset=(Math.random()-0.5)*12;
+
+}
+
+ctx.save();
+
+ctx.globalAlpha=0.08;
+
+ctx.drawImage(canvas,glitchOffset,0);
+
+ctx.restore();
 
 // خطوط افقی تلویزیون
 ctx.fillStyle="rgba(0,0,0,0.18)";
