@@ -55,6 +55,8 @@ function draw(){
 
 let img=ctx.createImageData(canvas.width,canvas.height);
 
+let t=Date.now()-startTime;
+
 for(let y=0;y<canvas.height;y++){
 
 let rowNoise=Math.random()*70;
@@ -76,7 +78,17 @@ img.data[i+3]=255;
 
 }
 
+let noiseAlpha=1;
+
+if(t>=5600){
+
+noiseAlpha=1-Math.min((t-5600)/1200,1);
+
+}
+
+ctx.globalAlpha=noiseAlpha;
 ctx.putImageData(img,0,0);
+ctx.globalAlpha=1;
 glitchTimer++;
 
 if(glitchTimer>25){
@@ -138,6 +150,15 @@ message,
 canvas.width/2,
 canvas.height/2
 );
+  
+}
+  
+if(t>=6800){
+
+ctx.fillStyle="black";
+ctx.globalAlpha=Math.min((t-6800)/1000,1);
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.globalAlpha=1;
 
 }
 requestAnimationFrame(draw);
