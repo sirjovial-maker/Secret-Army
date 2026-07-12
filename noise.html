@@ -44,7 +44,7 @@ canvas.height=window.innerHeight;
 
 resize();
 
-window.addEventListener("resize",resize);
+window.addEventListener("resize",resizlet t=Date.now()-startTime;e);
 
 let glitchOffset=0;
 let glitchTimer=0;
@@ -52,6 +52,9 @@ let glitchTimer=0;
 function draw(){
 
 let img=ctx.createImageData(canvas.width,canvas.height);
+  
+let t=Date.now()-startTime;
+  
 
 for(let y=0;y<canvas.height;y++){
 
@@ -72,9 +75,19 @@ img.data[i+3]=255;
 
 }
 
+let noiseAlpha=1;
+
+if(t>=5680){
+
+noiseAlpha=1-Math.min((t-5680)/1200,1);
+
 }
 
+ctx.globalAlpha=noiseAlpha;
+
+
 ctx.putImageData(img,0,0);
+ctx.globalAlpha=1;
 // نوار اسکن متحرک
 let scanY=(Date.now()/8)%canvas.height;
 
@@ -112,7 +125,6 @@ ctx.fillRect(0,y,canvas.width,1);
 
 // نمایش متن
 
-let t=Date.now()-startTime;
 
 let message="";
 
