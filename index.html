@@ -861,15 +861,6 @@ showPlayer();
 
 }
 
-window.onload=function(){
-
-setTimeout(function(){
-
-document.getElementById("splash").style.display="none";
-
-},3500);
-
-}
 </script>
 
 <style>
@@ -898,6 +889,12 @@ display:block;
 setTimeout(function(){
 
 document.getElementById("bootContainer").style.display="none";
+
+setTimeout(function(){
+
+document.getElementById("splash").style.display="none";
+
+},4000);
 
 },8000);
 
