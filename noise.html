@@ -47,6 +47,10 @@ window.addEventListener("resize",resize);
 
 let glitchOffset=0;
 let glitchTimer=0;
+
+const staticSound = new Audio("static.mp3");
+staticSound.volume = 0.5;
+staticSound.play();
   
 const startTime=Date.now();
 
@@ -156,6 +160,8 @@ canvas.height/2
 }
   
 if(t>=6800){
+
+staticSound.volume=Math.max(0,1-((t-6800)/1000));
 
 ctx.fillStyle="black";
 ctx.globalAlpha=Math.min((t-6800)/1000,1);
