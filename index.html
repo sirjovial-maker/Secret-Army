@@ -449,6 +449,8 @@ src="noise.html"
 frameborder="0">
 </iframe>
 
+  <audio id="staticPlayer" src="static.mp3"></audio>
+
   </div>
 <div id="splash">
 
@@ -629,6 +631,8 @@ img.src=src;
 
 });
 
+const staticSound = new Audio("static.mp3");
+const introMusic = new Audio("secret-army.mp3");
 
 let roles = [];
 let current = 0;
@@ -885,6 +889,9 @@ display:block;
 </style>
 
   <script>
+
+const player = document.getElementById("staticPlayer");
+player.play();
 
 setTimeout(function(){
 
