@@ -438,6 +438,15 @@ visibility:hidden;
 
 
 <body>
+<div id="bootContainer">
+
+<iframe
+id="bootFrame"
+src="noise.html"
+frameborder="0">
+</iframe>
+
+  </div>
 <div id="splash">
 
 <img src="images/logo.png" id="logo">
@@ -860,7 +869,36 @@ document.getElementById("splash").style.display="none";
 }
 </script>
 
+<style>
 
+#bootContainer{
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:#000;
+z-index:999999;
+}
+
+#bootFrame{
+width:100%;
+height:100%;
+border:none;
+display:block;
+}
+
+</style>
+
+  <script>
+
+setTimeout(function(){
+
+document.getElementById("bootContainer").style.display="none";
+
+},8000);
+
+</script>
 </body>
 
 </html>
